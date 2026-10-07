@@ -1,0 +1,766 @@
+﻿:root {
+    --black: #090909;
+    --panel: #111111;
+    --panel-light: #191919;
+    --cream: #eadcc5;
+    --muted: #a89d8d;
+    --accent: #b94e27;
+    --accent-light: #d36b3d;
+    --border: #41382f;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site-header {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 72px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(7, 7, 7, .94);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-weight: bold;
+    font-size: 1.65rem;
+    letter-spacing: .28rem;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    font-size: .76rem;
+    font-weight: bold;
+    letter-spacing: .1rem;
+    transition: .2s;
+}
+
+nav a:hover { color: var(--accent-light); }
+
+.menu-button {
+    display: none;
+    color: white;
+    border: 0;
+    background: transparent;
+    font-size: 1.7rem;
+}
+
+.hero {
+    position: relative;
+    min-height: 680px;
+    display: flex;
+    align-items: center;
+    padding: 110px 6% 60px;
+    background: linear-gradient(90deg, rgba(0,0,0,.93) 0%, rgba(0,0,0,.63) 45%, rgba(0,0,0,.15) 100%), radial-gradient(circle at 75% 40%, #8b3e1f 0%, #3b2117 24%, #0d0d0d 70%);
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 180px;
+    background: linear-gradient(transparent, var(--black));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+}
+
+.eyebrow {
+    color: var(--accent-light);
+    font-size: .75rem;
+    font-weight: bold;
+    letter-spacing: .28rem;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: .9;
+    letter-spacing: .1rem;
+    text-shadow: 0 8px 30px black;
+}
+
+.hero-tagline {
+    margin-top: 24px;
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+    letter-spacing: .45rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 38px;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 28px;
+    border: 1px solid var(--cream);
+    font-weight: bold;
+    font-size: .78rem;
+    letter-spacing: .12rem;
+    cursor: pointer;
+}
+
+.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+}
+
+.secondary {
+    background: rgba(0,0,0,.4);
+    color: var(--cream);
+}
+
+.section { padding: 75px 6%; }
+.dark-section { background: #0d0d0d; }
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    gap: 25px;
+    margin-bottom: 38px;
+}
+
+.section-heading h2,
+.about-section h2,
+.newsletter-section h2,
+.tour-section h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    letter-spacing: .08rem;
+}
+
+.section-rule {
+    height: 1px;
+    background: var(--border);
+    flex: 1;
+    margin-bottom: 13px;
+}
+
+.featured-release {
+    display: grid;
+    grid-template-columns: minmax(260px, 430px) 1fr;
+    gap: 50px;
+    max-width: 1200px;
+}
+
+.album-art {
+    aspect-ratio: 1;
+    background: radial-gradient(circle at 70% 35%, #a54d22, #402418 40%, #101010 75%);
+    border: 1px solid var(--border);
+}
+
+.album-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.release-info { padding: 20px 0; }
+
+.release-label {
+    color: var(--accent-light);
+    letter-spacing: .2rem;
+    font-size: .75rem;
+    font-weight: bold;
+}
+
+.release-info h3 {
+    font-family: Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    margin-top: 4px;
+}
+
+.artist-name {
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+.release-description {
+    max-width: 650px;
+    margin: 24px 0;
+    color: #c6bcad;
+}
+
+.player {
+    max-width: 650px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--panel-light);
+    border: 1px solid var(--border);
+}
+
+.play-button {
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--cream);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.player-details { width: 100%; }
+
+.progress-track {
+    width: 100%;
+    height: 5px;
+    background: #3b3834;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background: var(--accent-light);
+}
+
+.time-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: .72rem;
+}
+
+.stream-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.stream-link {
+    border: 1px solid var(--border);
+    padding: 10px 18px;
+    background: #151515;
+}
+
+.merch-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.product-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+}
+
+.product-image { aspect-ratio: 1; }
+
+.placeholder {
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #2a211b, #0c0c0c);
+    color: #776b5e;
+    font-family: Georgia, serif;
+    letter-spacing: .12rem;
+}
+
+.product-info { padding: 17px; }
+
+.product-info h3 {
+    font-family: Georgia, serif;
+    font-size: 1.15rem;
+}
+
+.product-info p { margin: 6px 0 13px; }
+
+.product-button {
+    width: 100%;
+    padding: 11px;
+    background: var(--accent);
+    color: white;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tour-section {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    padding: 80px 6%;
+    background: linear-gradient(90deg, rgba(0,0,0,.92), rgba(0,0,0,.45)), radial-gradient(circle at 80% 40%, #a94d24, #291a14 38%, #090909 72%);
+}
+
+.tour-content { max-width: 600px; }
+
+.tour-content p:not(.eyebrow) {
+    color: #c6bcad;
+    margin: 18px 0 28px;
+}
+
+.about-section { background: #13110f; }
+.about-content { max-width: 850px; }
+
+.about-content p:not(.eyebrow) {
+    color: #c6bcad;
+    margin-top: 20px;
+    font-size: 1.05rem;
+}
+
+.newsletter-section {
+    padding: 75px 6%;
+    background: #24170f;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.newsletter-section p { color: #c6bcad; }
+
+#newsletterForm { display: flex; }
+
+#newsletterForm input {
+    width: 100%;
+    padding: 17px;
+    background: #111;
+    color: white;
+    border: 1px solid var(--border);
+    outline: none;
+}
+
+#newsletterForm button {
+    padding: 17px 25px;
+    border: 0;
+    background: var(--accent);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer {
+    padding: 45px 6%;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 35px;
+    background: #070707;
+    border-top: 1px solid var(--border);
+}
+
+footer strong { display: block; }
+footer p, footer span { color: var(--muted); }
+
+.footer-production span {
+    display: block;
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+}
+
+.copyright {
+    grid-column: 1 / -1;
+    padding-top: 20px;
+    border-top: 1px solid #25211e;
+    font-size: .75rem;
+}
+
+@media (max-width: 850px) {
+    nav {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        padding: 25px 6%;
+        background: #080808;
+    }
+
+    nav.open { display: flex; }
+    .menu-button { display: block; }
+    .featured-release { grid-template-columns: 1fr; }
+    .merch-grid { grid-template-columns: repeat(2, 1fr); }
+    .newsletter-section { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr; }
+    .copyright { grid-column: auto; }
+}
+
+@media (max-width: 520px) {
+    .hero { min-height: 600px; }
+    .hero h1 { font-size: 3.6rem; }
+    .hero-tagline { letter-spacing: .18rem; }
+    .merch-grid { grid-template-columns: 1fr; }
+    #newsletterForm { flex-direction: column; }
+}
+
+.hero-content {
+    width: 48%;
+}
+
+.hero-art {
+    position: absolute;
+    z-index: 1;
+    right: 1%;
+    bottom: -3%;
+    width: min(57vw, 820px);
+    height: 92%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    pointer-events: none;
+}
+
+.hero-art img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: right bottom;
+    filter: drop-shadow(-20px 10px 35px rgba(0,0,0,.7));
+}
+
+@media (max-width: 900px) {
+    .hero-content {
+        width: 60%;
+    }
+
+    .hero-art {
+        right: -14%;
+        width: 70vw;
+        opacity: .62;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-art {
+        right: -25%;
+        bottom: 0;
+        width: 100vw;
+        opacity: .32;
+    }
+
+    .hero-content {
+        z-index: 3;
+    }
+}
+
+/* Larger desktop hero artwork */
+@media (min-width: 901px) {
+    .hero-art {
+        right: -4%;
+        bottom: -9%;
+        width: min(68vw, 1050px);
+        height: 112%;
+    }
+
+    .hero-art img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: right bottom;
+    }
+}
+
+/* Final desktop hero positioning */
+@media (min-width: 901px) {
+    .hero-art {
+        right: 2%;
+        bottom: -17%;
+    }
+}
+
+/* Tighten desktop hero composition */
+@media (min-width: 901px) {
+    .hero-art {
+        right: 7%;
+        bottom: -17%;
+    }
+}
+
+
+/* === CHIP HERO FINAL START === */
+
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 8 / 3;
+    padding: 0;
+    margin: 0;
+
+    display: block;
+
+    background-image: url("../assets/images/hero.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+/* Kill old generated overlays/art layout */
+.hero::after {
+    display: none !important;
+}
+
+.hero-overlay,
+.hero-art,
+.hero-content {
+    display: none !important;
+}
+
+/* Real clickable website buttons */
+.hero-actions {
+    position: absolute;
+    z-index: 10;
+
+    left: 5%;
+    bottom: 7%;
+
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hero-actions .button {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.hero-actions .primary {
+    background: #c84f26;
+    border-color: #c84f26;
+    color: #fff;
+}
+
+.hero-actions .secondary {
+    background: rgba(10, 10, 10, 0.72);
+    color: #f4ead5;
+    border-color: #f4ead5;
+}
+
+.hero-actions .button:hover {
+    transform: translateY(-2px);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+
+    .hero {
+        aspect-ratio: 16 / 7;
+        background-position: 56% center;
+    }
+
+    .hero-actions {
+        left: 4%;
+        bottom: 6%;
+    }
+}
+
+/* Phone */
+@media (max-width: 600px) {
+
+    .hero {
+        aspect-ratio: auto;
+        min-height: 560px;
+
+        /*
+        Shift toward Chip instead of centering the huge desktop image.
+        */
+        background-size: cover;
+        background-position: 64% center;
+    }
+
+    .hero-actions {
+        left: 20px;
+        right: 20px;
+        bottom: 26px;
+
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-actions .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* === CHIP HERO FINAL END === */
+
+/* === CHIP STOREY MERCH START === */
+
+.merch-section {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(139,62,31,.14), transparent 38%),
+        #0c0c0c;
+}
+
+.merch-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 8px 0 35px;
+}
+
+.merch-filter {
+    padding: 10px 24px;
+    border: 1px solid #5c5145;
+    background: transparent;
+    color: #d8cbb5;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .16rem;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.merch-filter:hover,
+.merch-filter.active {
+    background: #c84f26;
+    border-color: #c84f26;
+    color: white;
+}
+
+.merch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.product-card {
+    background: #151515;
+    border: 1px solid #302b26;
+    overflow: hidden;
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    border-color: #8b583d;
+    box-shadow: 0 18px 40px rgba(0,0,0,.45);
+}
+
+.product-image {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #f3f0e9;
+}
+
+.product-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.035);
+}
+
+.product-info {
+    padding: 18px;
+}
+
+.product-type {
+    display: block;
+    color: #c66a42;
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .2rem;
+    margin-bottom: 8px;
+}
+
+.product-info h3 {
+    margin: 0 0 7px;
+    color: #f0e4cf;
+    font-family: Georgia, serif;
+    font-size: 1.15rem;
+}
+
+.product-price {
+    margin: 0 0 16px;
+    color: #d7c7ad;
+    font-size: .95rem;
+    font-weight: 700;
+}
+
+.product-button {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #604332;
+    background: #201b18;
+    color: #9e8c7b;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .13rem;
+    cursor: default;
+}
+
+.product-card.merch-hidden {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .merch-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .merch-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .merch-filters {
+        justify-content: flex-start;
+        overflow-x: auto;
+    }
+}
+
+/* === CHIP STOREY MERCH END === */
