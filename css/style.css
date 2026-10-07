@@ -952,3 +952,70 @@ footer p, footer span { color: var(--muted); }
    END MOBILE SITE FIX
    ========================================================= */
 
+
+/* === MOBILE HERO CORRECTION === */
+@media (max-width: 600px) {
+
+    .hero {
+        /* Override every previous mobile hero rule */
+        width: 100% !important;
+        min-height: 0 !important;
+        height: auto !important;
+        aspect-ratio: auto !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        padding: 0 !important;
+        margin: 0 !important;
+
+        background-color: #080808 !important;
+        background-image: url("../assets/images/hero.png") !important;
+        background-size: contain !important;
+        background-position: top center !important;
+        background-repeat: no-repeat !important;
+
+        /*
+         * Reserve exactly the correct amount of vertical space
+         * for the 8:3 hero artwork.
+         */
+        padding-top: 37.5vw !important;
+
+        overflow: visible !important;
+    }
+
+    .hero-actions {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        inset: auto !important;
+
+        width: 100% !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+
+        padding: 20px 20px 28px !important;
+        margin: 0 !important;
+
+        background: #080808;
+        box-sizing: border-box;
+    }
+
+    .hero-actions .button {
+        width: 100% !important;
+        min-height: 58px;
+        margin: 0 !important;
+
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+
+        box-sizing: border-box;
+    }
+}
+/* === END MOBILE HERO CORRECTION === */
+
